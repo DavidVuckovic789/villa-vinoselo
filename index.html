@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Villa VinoSelo – Ferienhaus zwischen Weinbergen und Meer, Istrien Kroatien</title>
+<meta name="description" content="Villa VinoSelo in Vranje Selo, Istrien: zwei eigenständige Wohnungen, privater Pool, Whirlpool, Sauna und Sommerküche für bis zu 7 Gäste – umgeben von Weinbergen und Olivenhainen, nur 15 Minuten vom Meer.">
+<link rel="canonical" href="https://www.villavinoselo.com/">
+<link rel="alternate" hreflang="de" href="https://www.villavinoselo.com/index.html">
+<link rel="alternate" hreflang="en" href="https://www.villavinoselo.com/index-en.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Villa VinoSelo – Ferienhaus zwischen Weinbergen und Meer, Istrien">
+<meta property="og:description" content="Zwei eigenständige Wohnungen, privater Pool, Whirlpool und Sauna für bis zu 7 Gäste – istrische Ruhe zwischen Weinbergen, Olivenhainen und Meer.">
+<meta property="og:image" content="https://www.villavinoselo.com/hausansicht-front.jpg">
+<meta property="og:url" content="https://www.villavinoselo.com/">
+<meta property="og:locale" content="de_DE">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&family=Alex+Brush&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="style.css?v=20">
+</head>
+<body>
+
+<!-- INTRO -->
+<div id="introSplash" class="intro-splash">
+  <div class="intro-bg"></div>
+  <div class="intro-logo-wrap" id="introLogoWrap">
+    <div class="intro-pill" id="introPill">
+      <div class="intro-text" id="introText"><span class="intro-ltr" style="--d:0ms">V</span><span class="intro-ltr" style="--d:180ms">i</span><span class="intro-ltr" style="--d:360ms">n</span><span class="intro-ltr" style="--d:540ms">o</span><span class="intro-ltr" style="--d:720ms">S</span><span class="intro-ltr" style="--d:900ms">e</span><span class="intro-ltr" style="--d:1080ms">l</span><span class="intro-ltr" style="--d:1260ms">o</span></div>
+      <span class="intro-pen" id="introPen"></span>
+      <span class="intro-spark" id="introSpark">✦</span>
+    </div>
+  </div>
+  <span class="intro-skip" id="introSkip">Überspringen</span>
+</div>
+<script>
+  (function () {
+    if (sessionStorage.getItem('vinoseloIntroShown') === '1') {
+      var el = document.getElementById('introSplash');
+      if (el) el.style.display = 'none';
+    }
+  })();
+</script>
+
+<div class="progress-bar" id="pb"></div>
+<div class="cg-glow" id="glow"></div>
+
+<!-- LIGHTBOX -->
+<div id="lb">
+  <span class="lbx" onclick="closeLb()">✕</span>
+  <img id="lbImg" src="" alt="">
+  <div class="lb-meta"><span id="lbCap"></span> &nbsp;·&nbsp; <span id="lbCtr"></span></div>
+</div>
+
+<!-- HEADER -->
+<header id="hdr">
+  <nav>
+    <a href="#top" class="logo-mark"><img src="villavinoselo-logo.png" alt="Villa VinoSelo"></a>
+    <div class="nl">
+      <a href="#villa">Villa</a>
+      <a href="#rundgang">Rundgang</a>
+      <a href="#grundriss">Wohnungen</a>
+      <a href="#karte">Lage</a>
+      <a href="#preise">Preise</a>
+      <a href="#kontakt">Kontakt</a>
+      <a href="index-en.html" class="lang-switch">EN</a>
+      <a href="#kontakt" class="btn nc"><span>Anfragen</span></a>
+    </div>
+    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false">☰</button>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-still" id="hStill"></div>
+  <div class="hero-ov"></div>
+  <div class="hero-c" id="hc">
+    <span class="h-ey">Vranje Selo · Vižinada · Istrien · Kroatien</span>
+    <h1>Villa VinoSelo</h1>
+    <p class="h-sub">Zwei eigenständige Wohnungen · Privater Pool · 7 Gäste</p>
+    <div class="h-cta"><a href="#villa" class="btn btn-f"><span>Villa entdecken</span></a></div>
+    <div class="h-line"></div>
+  </div>
+  <div class="scroll-cue"><span>Scroll</span><span class="st"></span></div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="sc-cell reveal"><div class="sc-num" data-n="32">0</div><div class="sc-lbl">m² Pool</div></div>
+  <div class="sc-cell reveal"><div class="sc-num" data-n="3">0</div><div class="sc-lbl">Schlafzimmer</div></div>
+  <div class="sc-cell reveal"><div class="sc-num" data-n="2">0</div><div class="sc-lbl">Eigene Wohnungen</div></div>
+  <div class="sc-cell reveal"><div class="sc-num" data-n="7">0</div><div class="sc-lbl">Max. Gäste</div></div>
+</div>
+
+<!-- WILLKOMMEN -->
+<section class="section" id="villa" style="padding:80px 0;">
+  <div class="container">
+    <div class="pres reveal">
+      <span class="eyebrow">Willkommen</span>
+      <h2>Istrische Ruhe zwischen Weinbergen und Olivenhainen</h2>
+      <p>Villa VinoSelo liegt still inmitten der istrischen Landschaft bei Vranje Selo, Vižinada – umgeben von Weinbergen, Olivenhainen und alten Bäumen, unter viel Sonne und blauem Himmel. Ein Charme, der an die Toskana erinnert, nur 15 Autominuten vom Meer entfernt.</p>
+      <div class="more-text" id="mt">
+        <p style="margin-top:16px;">Das Anwesen gliedert sich in zwei komplett eigenständige, nicht miteinander verbundene Wohnungen mit jeweils eigenem Eingang: die größere Hauptwohnung im Obergeschoss und eine kleinere Wohnung im Untergeschoss – ideal für zwei Familien oder Gruppen, die dennoch ihre Privatsphäre schätzen. Dazu gehören ein privater Pool (8×4 m), ein Outdoor-Whirlpool, eine Infrarotsauna und eine Sommerküche mit Steingrill im weitläufigen, eingezäunten Garten. Einkaufsmöglichkeiten, Restaurants und der Ortskern Vižinada liegen nur 1 km entfernt.</p>
+      </div>
+      <span class="toggle-lnk" onclick="
+        const el = document.getElementById('mt');
+        const o = el.classList.toggle('open');
+        this.textContent = o ? 'Weniger anzeigen' : 'Mehr anzeigen';
+      ">Mehr anzeigen</span>
+    </div>
+    <div class="pres-img reveal-s" onclick="openLbSingle('aussenbereich.jpg','Villa VinoSelo zwischen Weinbergen und Olivenhainen')">
+      <img src="aussenbereich.jpg" alt="Außenbereich der Villa VinoSelo umgeben von Weinbergen und Olivenhainen">
+    </div>
+  </div>
+</section>
+
+<!-- 360° VIRTUELLER RUNDGANG -->
+<section class="tour-sec" id="rundgang">
+  <div class="tour-head container reveal center">
+    <span class="eyebrow" style="color:var(--terra2);">Virtueller Rundgang</span>
+    <h2 style="color:#fff;">Entdecken Sie jeden Raum</h2>
+    <p style="color:#8a877e;">Ziehen oder Pfeile klicken zum Navigieren</p>
+  </div>
+  <div class="tour-wrap" id="tourWrap">
+    <div class="tour-stage" id="tourStage">
+      <div class="ts active">
+        <img src="poolbereich-6.jpg" alt="Pool der Villa VinoSelo mit Sonnenliegen und Lavendel" loading="lazy" decoding="async">
+        <div class="ts-ov"></div>
+        <div class="ts-info"><h3>Pool &amp; Loungebereich</h3><p>Privater Salzpool 32 m² · Sonnenliegen · Lavendelterrasse · Sonnenschirme · Außendusche · Außen-WC</p></div>
+      </div>
+      <div class="ts">
+        <img src="wohnzimmer-og.jpg" alt="Wohnzimmer der Hauptwohnung im Obergeschoss" loading="lazy" decoding="async">
+        <div class="ts-ov"></div>
+        <div class="ts-info"><h3>Hauptwohnung · Wohnzimmer</h3><p>Kaminofen · Klimaanlage · Smart TV · WiFi Internet · offener Wohn-Essbereich</p></div>
+      </div>
+      <div class="ts">
+        <img src="kueche-og.jpg" alt="Küche der Hauptwohnung im Obergeschoss" loading="lazy" decoding="async">
+        <div class="ts-ov"></div>
+        <div class="ts-info"><h3>Hauptwohnung · Küche</h3><p>Vollausgestattet im Landhausstil · Spülmaschine · Mikrowelle · Toaster · Filterkaffeemaschine · Kühlschrank mit Gefrierfach · Essplatz mit Blick ins Grüne</p></div>
+      </div>
+      <div class="ts">
+        <img src="wohnzimmer-ug.jpg" alt="Wohnzimmer der Gästewohnung im Untergeschoss" loading="lazy" decoding="async">
+        <div class="ts-ov"></div>
+        <div class="ts-info"><h3>Gästewohnung · Untergeschoss</h3><p>Eigener separater Eingang · eigene Küche · ideal für Familien oder Freunde</p></div>
+      </div>
+      <div class="ts">
+        <img src="schlafzimmer-1-og.jpg" alt="Schlafzimmer der Villa VinoSelo mit Boxspringbett" loading="lazy" decoding="async">
+        <div class="ts-ov"></div>
+        <div class="ts-info"><h3>Schlafzimmer</h3><p>3 Schlafzimmer · Boxspringbetten · Klimaanlage in jedem Zimmer</p></div>
+      </div>
+      <div class="ts">
+        <img src="bad-og.jpg" alt="Bad der Villa VinoSelo mit Regendusche" loading="lazy" decoding="async">
+        <div class="ts-ov"></div>
+        <div class="ts-info"><h3>Bad</h3><p>2 Bäder · Regendusche · Bidet · Handtücher vorhanden</p></div>
+      </div>
+      <div class="ts">
+        <img src="wellness-bereich.jpg" alt="Wellnessbereich der Villa VinoSelo mit Sauna und Whirlpool" loading="lazy" decoding="async">
+        <div class="ts-ov"></div>
+        <div class="ts-info"><h3>Wellness &amp; Whirlpool</h3><p>Infrarotsauna · Outdoor-Whirlpool · Entspannung unter freiem Himmel</p></div>
+      </div>
+      <div class="ts">
+        <img src="sommerkueche.jpg" alt="Überdachte Sommerküche mit Steingrill" loading="lazy" decoding="async">
+        <div class="ts-ov"></div>
+        <div class="ts-info"><h3>Sommerküche</h3><p>Steingrill · Großer Außengrill · überdachter Essbereich · laue mediterrane Abende</p></div>
+      </div>
+      <div class="ts">
+        <img src="gartenbereich.jpg" alt="Weitläufiger Garten der Villa VinoSelo mit altem Baumbestand" loading="lazy" decoding="async">
+        <div class="ts-ov"></div>
+        <div class="ts-info"><h3>Garten</h3><p>Weitläufig · eingezäunt · alter Baumbestand · Hängematte im Schatten</p></div>
+      </div>
+    </div>
+    <div class="tour-dots" id="tDots"></div>
+    <div class="tour-nav">
+      <button class="t-btn" onclick="tMove(-1)">‹</button>
+      <button class="t-btn" onclick="tMove(1)">›</button>
+    </div>
+  </div>
+</section>
+
+<!-- DIE VILLA + GALERIE -->
+<section class="section" style="background:var(--champagne);">
+  <div class="container">
+    <div class="vi">
+      <div class="iw reveal-l"><img src="aussenbereich-ug.jpg" alt="Außenbereich der Gästewohnung im Untergeschoss der Villa VinoSelo" loading="lazy" decoding="async"></div>
+      <div class="reveal-r">
+        <span class="eyebrow">Die Villa</span>
+        <h2>Zwei Wohnungen, ein istrischer Traum</h2>
+        <p>155 m² Wohnfläche, aufgeteilt auf zwei vollständig getrennte, nicht miteinander verbundene Wohnungen mit jeweils eigenem Eingang: die großzügige Hauptwohnung im Obergeschoss und eine kompaktere Wohnung im Untergeschoss. Insgesamt 3 Schlafzimmer plus 2 zusätzliche Schlafmöglichkeiten, 2 Bäder und 2 separate Gäste-WCs, umgeben von einem eingezäunten Garten mit Pool, Whirlpool und Sauna.</p>
+        <a href="#grundriss" class="btn" style="margin-top:22px;"><span>Wohnungen ansehen</span></a>
+      </div>
+    </div>
+    <div class="fw-gallery reveal" id="fwGallery">
+      <img id="fwImg" src="poolbereich-3.jpg" alt="Außenansicht der Villa VinoSelo" class="fw-img">
+      <div class="fw-ov"></div>
+      <div class="fw-labels">
+        <div class="fw-label on" onmouseenter="fwGoto(0,this)" onclick="fwGoto(0,this)">Außenansicht</div>
+        <div class="fw-label" onmouseenter="fwGoto(1,this)" onclick="fwGoto(1,this)">Pool</div>
+        <div class="fw-label" onmouseenter="fwGoto(2,this)" onclick="fwGoto(2,this)">Sommerküche</div>
+        <div class="fw-label" onmouseenter="fwGoto(3,this)" onclick="fwGoto(3,this)">Wellness</div>
+        <div class="fw-label" onmouseenter="fwGoto(4,this)" onclick="fwGoto(4,this)">Garten</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANIMIERTER GRUNDRISS -->
+<section class="section" id="grundriss">
+  <div class="container">
+    <div class="reveal center" style="max-width:680px;margin:0 auto 20px;">
+      <span class="eyebrow">Wohnungen</span>
+      <h2>Zwei eigenständige Wohnungen</h2>
+      <p>Klicken Sie auf einen Raum, um ein Foto zu sehen. Beide Ebenen sind nicht miteinander verbunden und verfügen über einen eigenen Eingang.</p>
+    </div>
+    <div class="floor-tabs">
+      <div class="ftab on"  onclick="switchFloor(0)">Obergeschoss · Hauptwohnung</div>
+      <div class="ftab"     onclick="switchFloor(1)">Untergeschoss · Gästewohnung</div>
+    </div>
+
+    <!-- OBERGESCHOSS: HAUPTWOHNUNG -->
+    <div class="floor-plan on" id="fp0">
+      <svg class="fp-svg" viewBox="0 0 620 410">
+        <rect class="fp-room room drawn" x="20" y="20" width="180" height="140" rx="4" onclick="openLbSingle('schlafzimmer-2-og.jpg','Schlafzimmer 2 (Hauptwohnung OG)')"><title>Schlafzimmer 2</title></rect>
+        <text class="fp-lbl" x="110" y="94" text-anchor="middle">Schlafzimmer 2</text>
+
+        <rect class="fp-room room drawn" x="20" y="160" width="180" height="90" rx="4" style="animation-delay:.05s" onclick="openLbSingle('bad-og.jpg','Bad (Hauptwohnung OG)')"><title>Bad</title></rect>
+        <text class="fp-lbl" x="110" y="209" text-anchor="middle">Bad</text>
+
+        <rect class="fp-room room drawn" x="20" y="250" width="180" height="140" rx="4" style="animation-delay:.08s" onclick="openLbSingle('schlafzimmer-1-og.jpg','Schlafzimmer 1 (Hauptwohnung OG)')"><title>Schlafzimmer 1</title></rect>
+        <text class="fp-lbl" x="110" y="324" text-anchor="middle">Schlafzimmer 1</text>
+
+        <rect class="fp-room room no-click drawn" x="220" y="160" width="70" height="230" rx="4" style="animation-delay:.1s"><title>Flur</title></rect>
+        <text class="fp-lbl" x="255" y="279" text-anchor="middle">Flur</text>
+
+        <rect class="fp-room room drawn" x="220" y="20" width="270" height="140" rx="4" style="animation-delay:.15s" onclick="openLbSingle('wohnzimmer-esszimmer-og.jpg','Wohn- &amp; Esszimmer (Hauptwohnung OG)')"><title>Wohn- &amp; Esszimmer</title></rect>
+        <text class="fp-lbl" x="355" y="84" text-anchor="middle">Wohn- &amp;</text>
+        <text class="fp-lbl" x="355" y="96" text-anchor="middle">Esszimmer</text>
+
+        <rect class="fp-room room drawn" x="310" y="170" width="180" height="100" rx="4" style="animation-delay:.25s" onclick="openLbSingle('kueche-og.jpg','Küche (Hauptwohnung OG)')"><title>Küche</title></rect>
+        <text class="fp-lbl" x="400" y="224" text-anchor="middle">Küche</text>
+
+        <rect class="fp-room room drawn" x="310" y="270" width="70" height="120" rx="4" style="animation-delay:.3s" onclick="openLbSingle('gaeste-wc-og.jpg','Gäste-WC (Hauptwohnung OG)')"><title>Gäste-WC</title></rect>
+        <text class="fp-lbl" x="345" y="334" text-anchor="middle" style="font-size:8.5px;">Gäste-WC</text>
+
+        <rect class="fp-room room drawn" x="380" y="270" width="110" height="120" rx="4" style="animation-delay:.32s" onclick="openLbSingle('waschkueche-og.jpg','Hauswirtschaftsraum (Hauptwohnung OG)')"><title>Hauswirtschaftsraum</title></rect>
+        <text class="fp-lbl" x="435" y="324" text-anchor="middle" style="font-size:8px;">Hauswirtschafts-</text>
+        <text class="fp-lbl" x="435" y="336" text-anchor="middle" style="font-size:8px;">raum</text>
+
+        <rect class="fp-room room drawn" x="510" y="20" width="90" height="370" rx="4" style="animation-delay:.35s" onclick="openLbSingle('terrasse-og.jpg','Balkon (Hauptwohnung OG)')"><title>Balkon</title></rect>
+        <text class="fp-lbl" x="555" y="209" text-anchor="middle">Balkon</text>
+      </svg>
+    </div>
+
+    <!-- UNTERGESCHOSS: GÄSTEWOHNUNG -->
+    <div class="floor-plan" id="fp1">
+      <svg class="fp-svg" viewBox="0 0 700 290">
+        <rect class="fp-room room" x="20" y="20" width="200" height="250" rx="4" onclick="openLbSingle('schlafzimmer-ug.jpg','Schlafzimmer (Gästewohnung UG)')"><title>Schlafzimmer</title></rect>
+        <text class="fp-lbl" x="120" y="149" text-anchor="middle">Schlafzimmer</text>
+
+        <rect class="fp-room room" x="240" y="20" width="260" height="250" rx="4" style="animation-delay:.1s" onclick="openLbSingle('wohnzimmer-ug.jpg','Wohnzimmer (Gästewohnung UG)')"><title>Wohnzimmer</title></rect>
+        <text class="fp-lbl" x="370" y="149" text-anchor="middle">Wohnzimmer</text>
+
+        <rect class="fp-room room" x="520" y="20" width="160" height="120" rx="4" style="animation-delay:.2s" onclick="openLbSingle('bad-ug.jpg','Bad (Gästewohnung UG)')"><title>Bad</title></rect>
+        <text class="fp-lbl" x="600" y="84" text-anchor="middle">Bad</text>
+
+        <rect class="fp-room room" x="520" y="150" width="160" height="120" rx="4" style="animation-delay:.3s" onclick="openLbSingle('kueche-ug.jpg','Küche (Gästewohnung UG)')"><title>Küche</title></rect>
+        <text class="fp-lbl" x="600" y="214" text-anchor="middle">Küche</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- MOMENTE / LIFESTYLE -->
+<section class="section" id="momente">
+  <div class="container">
+    <div class="reveal center" style="max-width:680px;margin:0 auto;">
+      <span class="eyebrow">Ihr Urlaub</span>
+      <h2>Momente in der Villa VinoSelo</h2>
+      <p>So fühlt sich ein Aufenthalt zwischen Weinbergen, Olivenhainen und Meer an.</p>
+    </div>
+    <div class="life-grid reveal">
+      <div class="life-item" onclick="openLbSingle('gartenbereich-1.jpg','Ruhe unter alten Bäumen')"><img src="gartenbereich-1.jpg" alt="Hängematte im schattigen Garten der Villa VinoSelo" loading="lazy" decoding="async"><div class="cap">Ruhe unter alten Bäumen</div></div>
+      <div class="life-item" onclick="openLbSingle('poolbereich.jpg','Sonnige Stunden am Pool')"><img src="poolbereich.jpg" alt="Sonnenliegen am Pool der Villa VinoSelo" loading="lazy" decoding="async"><div class="cap">Sonnige Stunden am Pool</div></div>
+      <div class="life-item" onclick="openLbSingle('aussenbereich-whirlpool.jpg','Whirlpool unter freiem Himmel')"><img src="aussenbereich-whirlpool.jpg" alt="Outdoor-Whirlpool der Villa VinoSelo" loading="lazy" decoding="async"><div class="cap">Whirlpool unter freiem Himmel</div></div>
+      <div class="life-item" onclick="openLbSingle('sommerkueche-1.jpg','Mediterrane Grillabende')"><img src="sommerkueche-1.jpg" alt="Sommerküche mit Steingrill der Villa VinoSelo" loading="lazy" decoding="async"><div class="cap">Mediterrane Grillabende</div></div>
+      <div class="life-item" onclick="openLbSingle('terrasse-og-1.jpg','Aperitif auf der Terrasse')"><img src="terrasse-og-1.jpg" alt="Gedeckter Tisch auf der Terrasse der Villa VinoSelo" loading="lazy" decoding="async"><div class="cap">Aperitif auf der Terrasse</div></div>
+      <div class="life-item" onclick="openLbSingle('spielplatz-umgebung.jpg','Spielplatz ganz in der Nähe')"><img src="spielplatz-umgebung.jpg" alt="Spielplatz in der Nähe der Villa VinoSelo" loading="lazy" decoding="async"><div class="cap">Spielplatz ganz in der Nähe</div></div>
+      <div class="life-item" onclick="openLbSingle('wellness-bereich.jpg','Wellness bei Kerzenlicht')"><img src="wellness-bereich.jpg" alt="Sauna und Whirlpool der Villa VinoSelo am Abend" loading="lazy" decoding="async"><div class="cap">Wellness bei Kerzenlicht</div></div>
+      <div class="life-item" onclick="openLbSingle('eingangsbereich-grundstueck.jpg','Ankommen und loslassen')"><img src="eingangsbereich-grundstueck.jpg" alt="Eingangsbereich des Grundstücks der Villa VinoSelo" loading="lazy" decoding="async"><div class="cap">Ankommen und loslassen</div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- QUOTE / PARALLAX BANNER -->
+<section class="qb" id="qbSec">
+  <div class="qb-bg" id="qbBg"></div>
+  <div class="qb-ov"></div>
+  <blockquote class="reveal-s">
+    „Ruhe, Natur und das echte istrische Lebensgefühl – umgeben von Weinbergen und Olivenhainen, mit dem Meer nur eine kurze Fahrt entfernt."
+    <cite>Villa VinoSelo · Vranje Selo, Istrien</cite>
+  </blockquote>
+</section>
+
+<!-- GÄSTESTIMMEN -->
+<section class="section" id="bewertungen">
+  <div class="container">
+    <div class="reveal center" style="max-width:680px;margin:0 auto;">
+      <span class="eyebrow">Gästestimmen</span>
+      <h2>Was unsere Gäste sagen</h2>
+      <div class="rating-badge">
+        <span class="stars">★★★★★</span>
+        <span>5,0 · 6 Bewertungen · Gäste-Favorit</span>
+      </div>
+    </div>
+    <div class="testi-grid reveal">
+      <div class="testi-card">
+        <span class="stars">★★★★★</span>
+        <p class="testi-quote">„Die Villa war perfekt ausgestattet, es hat uns an nichts gefehlt … Die Lage ist ruhig, privat und ideal zum Abschalten. Wir haben uns rundum wohlgefühlt und kommen ganz sicher wieder!"</p>
+        <div class="testi-author">Sandra S. <span>· Salzburg</span></div>
+      </div>
+      <div class="testi-card">
+        <span class="stars">★★★★★</span>
+        <p class="testi-quote">„Die Villa hat uns vom ersten Moment an begeistert: ruhig gelegen, sehr privat, sauber, komfortabel und mit allem ausgestattet, was man für einen entspannten Urlaub braucht … Absolute Empfehlung!"</p>
+        <div class="testi-author">Helge W. <span>· Traunstein</span></div>
+      </div>
+      <div class="testi-card">
+        <span class="stars">★★★★★</span>
+        <p class="testi-quote">„Die Villa VinoSelo ist ein traumhafter Ort für alle, die Ruhe, Natur und Privatsphäre suchen … Wir würden jederzeit wiederkommen."</p>
+        <div class="testi-author">Tine W. <span>· Bonn</span></div>
+      </div>
+      <div class="testi-card">
+        <span class="stars">★★★★★</span>
+        <p class="testi-quote">„Pool, Whirlpool und die Sommerküche machen den Aufenthalt besonders angenehm … Ein wunderbarer Ort für Erholung in Istrien."</p>
+        <div class="testi-author">Rainer H. <span>· Wolfsburg</span></div>
+      </div>
+      <div class="testi-card">
+        <span class="stars">★★★★★</span>
+        <p class="testi-quote">„Die Begrüßung mit einer istrischen Platte und Getränk war der Start in einen herrlichen Urlaub … Für Familien mit Kindern geeignet, weil zwei Wohnungen genutzt werden können."</p>
+        <div class="testi-author">Heinrich Z. <span>· Appenweier</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREISE -->
+<section class="section" id="preise">
+  <div class="container">
+    <div class="reveal center" style="max-width:680px;margin:0 auto;">
+      <span class="eyebrow">Preise</span>
+      <h2>Übernachten in der Villa VinoSelo</h2>
+    </div>
+    <div class="reveal" style="max-width:760px;margin:44px auto 0;overflow-x:auto;">
+      <table class="pt">
+        <tr><th>Zeitraum</th><th>Preis / Woche</th></tr>
+        <tr><td>Ostern</td><td>1.600 €</td></tr>
+        <tr><td>Mai</td><td>1.700 €</td></tr>
+        <tr><td>Pfingsten</td><td>2.000 €</td></tr>
+        <tr><td>Juni</td><td>2.100 €</td></tr>
+        <tr class="ph"><td>Juli / August</td><td>2.800 €</td></tr>
+        <tr><td>September</td><td>2.200 €</td></tr>
+        <tr><td>Oktober</td><td>1.700 €</td></tr>
+        <tr><td>November – April</td><td>1.400 €</td></tr>
+      </table>
+    </div>
+    <div class="reveal center" style="max-width:760px;margin:40px auto 0;">
+      <p style="font-size:14px;line-height:2;color:var(--ink);">
+        Buchungen sind von Samstag bis Samstag.<br>
+        Bei geringer Nachfrage sind auch lange Wochenenden möglich.<br>
+        Check-in ab 14:00 Uhr und Check-out bis 10:00 Uhr.<br>
+        Außerhalb der Hochsaison können diese Zeiten flexibel an die Fluganforderungen angepasst werden.<br>
+        35 % der Zahlung wird zum Zeitpunkt der Buchung fällig, der Restbetrag ist 6 Wochen vor Beginn Ihres Aufenthaltes zahlbar.<br>
+        Kaution 500,00 €
+      </p>
+    </div>
+    <div class="center reveal" style="margin-top:40px;">
+      <a href="#kontakt" class="btn btn-f"><span>Preis &amp; Verfügbarkeit anfragen</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- INTERAKTIVE KARTE -->
+<section class="section" id="karte" style="background:var(--cream);">
+  <div class="container">
+    <div class="reveal center" style="max-width:700px;margin:0 auto 40px;">
+      <span class="eyebrow">Lage</span>
+      <h2>Ruhig gelegen im Herzen Istriens</h2>
+      <p>Zwischen Weinbergen und Olivenhainen bei Vranje Selo, Vižinada – nur eine kurze Fahrt vom Meer entfernt.</p>
+    </div>
+    <div class="reveal" id="map"></div>
+    <div class="map-row reveal">
+      <div class="mi"><h4>Meer &amp; Strände</h4><p>ca. 15 Fahrminuten</p></div>
+      <div class="mi"><h4>Rovinj</h4><p>ca. 48 km · venezianisches Hafenstädtchen</p></div>
+      <div class="mi"><h4>Flughafen Pula</h4><p>ca. 68 km</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- UMGEBUNG -->
+<section class="section" id="umg">
+  <div class="container">
+    <div class="center reveal" style="max-width:680px;margin:0 auto;">
+      <span class="eyebrow" style="color:var(--olive);">Umgebung</span>
+      <h2>Istrien wie in der Toskana entdecken</h2>
+    </div>
+    <div class="fw-gallery reveal" id="fwGallery2">
+      <img id="fwImg2" src="weinstrasse.jpg" alt="Weinstraße der Poreština" class="fw-img">
+      <div class="fw-ov"></div>
+      <div class="fw-caption">
+        <h3>Weinstraße</h3>
+        <p>Familiäre Weingüter und Kellereien der Poreština in unmittelbarer Nähe.</p>
+        <span class="fw-dist">in der Umgebung</span>
+      </div>
+      <div class="fw-labels">
+        <div class="fw-label on" onmouseenter="fwGoto2(0,this)" onclick="fwGoto2(0,this)">Weinstraße</div>
+        <div class="fw-label" onmouseenter="fwGoto2(1,this)" onclick="fwGoto2(1,this)">Olivenhaine</div>
+        <div class="fw-label" onmouseenter="fwGoto2(2,this)" onclick="fwGoto2(2,this)">Parenzana-Radweg</div>
+        <div class="fw-label" onmouseenter="fwGoto2(3,this)" onclick="fwGoto2(3,this)">Küste</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section class="section" id="kontakt">
+  <div class="container">
+    <div class="cg">
+      <div class="reveal-l">
+        <span class="eyebrow">Kontakt</span>
+        <h2>Wir freuen uns auf Ihre Anfrage</h2>
+        <div class="il"><strong>Adresse</strong><span>52447 Vranje Selo, Kroatien</span></div>
+        <div class="il"><strong>Telefon</strong><span><a href="tel:+4917622800732">+49 176 22800732</a></span></div>
+        <div class="il"><strong>E-Mail</strong><span><a href="mailto:info@villavinoselo.com">info@villavinoselo.com</a></span></div>
+        <div class="il"><strong>Check-in</strong><span>14:00 Uhr</span></div>
+        <div class="il"><strong>Check-out</strong><span>10:00 Uhr</span></div>
+        <div class="il"><strong>Kaution</strong><span>500 € (vor Ort)</span></div>
+        <a href="#" class="btn btn-f" style="margin-top:24px;" onclick="openInquiry(); return false;"><span>Anfrage senden</span></a>
+      </div>
+      <div class="reveal-s center">
+        <img src="irene-bux.jpg" alt="Irene Bux, Gastgeberin der Villa VinoSelo" class="host-photo">
+        <p class="host-caption">Irene Bux<span>Ihre Gastgeberin</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="ft">
+      <a href="#top" class="logo-mark"><img src="villavinoselo-logo.png" alt="Villa VinoSelo"></a>
+      <div class="fl">
+        <div class="fc">
+          <h4>Seiten</h4>
+          <a href="#villa">Die Villa</a>
+          <a href="#rundgang">Rundgang</a>
+          <a href="#grundriss">Wohnungen</a>
+          <a href="#karte">Lage</a>
+          <a href="#preise">Preise</a>
+        </div>
+        <div class="fc">
+          <h4>Kontakt</h4>
+          <a href="#kontakt">Anfragen</a>
+          <a href="mailto:info@villavinoselo.com">info@villavinoselo.com</a>
+          <a href="index-en.html" class="lang-switch">English version</a>
+        </div>
+      </div>
+    </div>
+    <div class="leg">
+      <span>© 2026 Villa VinoSelo. Alle Rechte vorbehalten.</span>
+      <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ANFRAGE MODAL -->
+<div id="inqModal" class="inq-modal">
+  <div class="inq-box">
+    <span class="inq-close" onclick="closeInquiry()">✕</span>
+    <h3>Ihre Anfrage</h3>
+    <p class="inq-sub">Füllen Sie das Formular aus, wir melden uns so schnell wie möglich bei Ihnen.</p>
+    <form id="inqForm" action="https://formspree.io/f/mnjkoyep" method="POST">
+      <input type="hidden" name="_cc" value="IreneBux@web.de">
+      <input type="hidden" name="_subject" value="Neue Anfrage – Villa VinoSelo Webseite">
+      <label class="inq-label">Name
+        <input type="text" name="name" required>
+      </label>
+      <label class="inq-label">E-Mail
+        <input type="email" name="email" required>
+      </label>
+      <label class="inq-label">Ihre Anfrage
+        <textarea name="message" rows="6" required></textarea>
+      </label>
+      <button type="submit" class="btn btn-f inq-submit"><span>Absenden</span></button>
+      <p class="inq-status" id="inqStatus"></p>
+    </form>
+  </div>
+</div>
+
+<!-- EXTERNE BIBLIOTHEKEN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<!-- EIGENES SKRIPT -->
+<script src="script.js?v=15"></script>
+
+</body>
+</html>
