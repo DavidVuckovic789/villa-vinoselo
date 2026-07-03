@@ -76,6 +76,8 @@ nav { display: flex; align-items: center; justify-content: space-between; max-wi
 .nl a:not(.btn):hover { opacity: 1; color: var(--terra2); }
 .nc { border-color: #fff; color: #fff; padding: 10px 22px; }
 #hdr.sc .nc { border-color: var(--charcoal); color: var(--charcoal); }
+#hdr.sc .nc::before { background: var(--terra); }
+#hdr.sc .nc:hover { border-color: var(--terra); }
 .lang-switch { font-size: 11px !important; letter-spacing: 1.6px; opacity: .75; }
 .lang-switch:hover { opacity: 1 !important; }
 footer .lang-switch { display: inline-block; color: #b9b6ac; margin-top: 4px; }
