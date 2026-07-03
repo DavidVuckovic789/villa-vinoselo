@@ -341,6 +341,7 @@ footer { background: var(--charcoal); color: #cfcdc4; padding: 80px 0 30px; }
   .burger { display: block; }
   .section { padding: 80px 0; }
   .ft { flex-direction: column; }
+  .ft .logo-mark { align-self: flex-start; }
   .cg-glow { display: none; }
   .tour-wrap { height: 380px; }
   .ts-info { left: 24px; right: 24px; bottom: 92px; }
