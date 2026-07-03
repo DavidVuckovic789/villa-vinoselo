@@ -331,7 +331,8 @@ footer { background: var(--charcoal); color: #cfcdc4; padding: 80px 0 30px; }
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
   .vi, .vt, .cg { grid-template-columns: 1fr; gap: 40px; }
-  .map-row, .life-grid, .testi-grid { grid-template-columns: repeat(2, 1fr); }
+  .map-row, .life-grid { grid-template-columns: repeat(2, 1fr); }
+  .testi-grid { grid-template-columns: 1fr; }
   .stats { grid-template-columns: repeat(2, 1fr); }
   .nl { display: none; }
   .nl.open { display: flex; flex-direction: column; position: absolute; top: 100%; right: 32px; background: #fff; padding: 28px; box-shadow: 0 12px 28px rgba(0,0,0,.12); gap: 18px; }
