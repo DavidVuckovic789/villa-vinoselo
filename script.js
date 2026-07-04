@@ -170,7 +170,7 @@
           capEl.querySelector('p').textContent = caps[i][1];
           capEl.querySelector('.fw-dist').textContent = caps[i][2];
         }
-      }, 260);
+      }, 140);
       document.querySelectorAll('#' + wrapId + ' .fw-label').forEach(function (l) { l.classList.remove('on'); });
       el.classList.add('on');
     };
