@@ -196,6 +196,11 @@
     ]
   );
 
+  ['poolbereich-3.jpg', 'poolbereich-4.jpg', 'sommerkueche.jpg', 'wellness-bereich.jpg', 'gartenbereich-abend.jpg',
+   'weinstrasse.jpg', 'olivenhaine.jpg', 'parenzana-radweg.jpg', 'meer.jpg'].forEach(function (src) {
+    new Image().src = src;
+  });
+
   /* ── VIRTUELLER RUNDGANG ── */
   var curT   = 0,
       slides = document.querySelectorAll('.ts'),
