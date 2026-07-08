@@ -27,7 +27,7 @@ p { font-size: 16px; color: var(--ink); font-weight: 300; }
 .center { text-align: center; }
 
 /* ── PROGRESS BAR ── */
-.progress-bar { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: linear-gradient(90deg, var(--terra), var(--terra2), var(--olive)); z-index: 300; }
+.progress-bar { position: fixed; top: 0; left: 0; height: 3px; width: 100%; transform: scaleX(0); transform-origin: 0 0; will-change: transform; background: linear-gradient(90deg, var(--terra), var(--terra2), var(--olive)); z-index: 300; }
 
 /* ── REVEAL ANIMATIONS ── */
 .reveal { opacity: 0; transform: translateY(30px); transition: opacity .85s var(--e2), transform .85s var(--e2); }
@@ -328,7 +328,7 @@ footer { background: var(--charcoal); color: #cfcdc4; padding: 80px 0 30px; }
 /* ── STICKY CTA + CURSOR GLOW ── */
 .sticky-cta { position: fixed; bottom: 28px; right: 28px; z-index: 150; opacity: 0; transform: translateY(20px); pointer-events: none; transition: opacity .4s var(--e2), transform .4s var(--e2); box-shadow: 0 14px 32px rgba(162,87,60,.38); }
 .sticky-cta.on { opacity: 1; transform: none; pointer-events: auto; }
-.cg-glow { position: fixed; width: 320px; height: 320px; border-radius: 50%; background: radial-gradient(circle, rgba(162,87,60,.09) 0%, transparent 70%); pointer-events: none; z-index: 1; transform: translate(-50%, -50%); mix-blend-mode: multiply; }
+.cg-glow { position: fixed; top: 0; left: 0; width: 320px; height: 320px; border-radius: 50%; background: radial-gradient(circle, rgba(162,87,60,.09) 0%, transparent 70%); pointer-events: none; z-index: 1; transform: translate(-50%, -50%); will-change: transform; mix-blend-mode: multiply; }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {

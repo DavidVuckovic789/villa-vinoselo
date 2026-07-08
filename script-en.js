@@ -78,20 +78,33 @@
       qbSec  = document.getElementById('qbSec'),
       hStill = document.getElementById('hStill');
 
-  /* ── SCROLL: Progress-Bar + Parallax ── */
+  /* ── SCROLL: Progress-Bar + Parallax (rAF-throttled, cached layout values) ── */
+  var heroH = hero.offsetHeight,
+      docH  = document.documentElement.scrollHeight - window.innerHeight,
+      winH  = window.innerHeight;
+  window.addEventListener('resize', function () {
+    heroH = hero.offsetHeight;
+    docH  = document.documentElement.scrollHeight - window.innerHeight;
+    winH  = window.innerHeight;
+  }, { passive: true });
+
   function onScr() {
-    var sY = window.scrollY,
-        dH = document.documentElement.scrollHeight - window.innerHeight;
+    var sY = window.scrollY;
     hdr.classList.toggle('sc', sY > 50);
-    bar.style.width = (dH > 0 ? (sY / dH) * 100 : 0) + '%';
-    var hH = hero.offsetHeight, t = Math.min(sY / hH, 1);
+    bar.style.transform = 'scaleX(' + (docH > 0 ? sY / docH : 0) + ')';
+    var t = Math.min(sY / heroH, 1);
     hc.style.transform = 'translateY(' + (sY * .28) + 'px)';
     hc.style.opacity   = Math.max(0, 1 - t * 1.4);
     var qr = qbSec.getBoundingClientRect();
-    if (qr.top < window.innerHeight && qr.bottom > 0)
-      qbBg.style.transform = 'translateY(' + ((window.innerHeight / 2 - qr.top) * .22) + 'px)';
+    if (qr.top < winH && qr.bottom > 0)
+      qbBg.style.transform = 'translateY(' + ((winH / 2 - qr.top) * .22) + 'px)';
   }
-  window.addEventListener('scroll', onScr, { passive: true });
+  var scrTick = false;
+  window.addEventListener('scroll', function () {
+    if (scrTick) return;
+    scrTick = true;
+    requestAnimationFrame(function () { onScr(); scrTick = false; });
+  }, { passive: true });
   onScr();
 
   /* ── MOBILE MENÜ ── */
@@ -114,19 +127,36 @@
     window.addEventListener('resize', function () { if (window.innerWidth > 900) closeMenu(); });
   }
 
-  /* ── CURSOR GLOW ── */
+  /* ── CURSOR GLOW (rAF-throttled, transform only) ── */
+  var gx = 0, gy = 0, glowTick = false;
   document.addEventListener('mousemove', function (e) {
-    glow.style.left = e.clientX + 'px';
-    glow.style.top  = e.clientY + 'px';
-  });
+    gx = e.clientX; gy = e.clientY;
+    if (glowTick) return;
+    glowTick = true;
+    requestAnimationFrame(function () {
+      glow.style.transform = 'translate(' + gx + 'px,' + gy + 'px) translate(-50%, -50%)';
+      glowTick = false;
+    });
+  }, { passive: true });
 
-  /* ── HERO MAUS-PARALLAX + HOVER-ZOOM ── */
+  /* ── HERO MOUSE PARALLAX + HOVER ZOOM (rAF-throttled) ── */
+  var hx = 0, hy = 0, heroTick = false, heroIn = false;
   hero.addEventListener('mousemove', function (e) {
-    var x = (e.clientX / window.innerWidth  - .5) * 22,
-        y = (e.clientY / window.innerHeight - .5) * 14;
-    hStill.style.transform = 'scale(1.12) translate(' + (x * .6) + 'px,' + (y * .6) + 'px)';
-  });
+    heroIn = true;
+    hx = e.clientX; hy = e.clientY;
+    if (heroTick) return;
+    heroTick = true;
+    requestAnimationFrame(function () {
+      if (heroIn) {
+        var x = (hx / window.innerWidth  - .5) * 22,
+            y = (hy / window.innerHeight - .5) * 14;
+        hStill.style.transform = 'scale(1.12) translate(' + (x * .6) + 'px,' + (y * .6) + 'px)';
+      }
+      heroTick = false;
+    });
+  }, { passive: true });
   hero.addEventListener('mouseleave', function () {
+    heroIn = false;
     hStill.style.transform = '';
   });
 

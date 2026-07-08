@@ -1,11 +1,5 @@
 # Local dev tooling (not part of the deployed site)
 .claude/
 
-# Reference-only files, not used by the website
-ChatGPT Image 2. Juli 2026, 11_02_35.png
-WhatsApp Image 2026-07-03 at 11.27.41.jpeg
-Layout OG Wohung.jpeg
-Layout UG Wohung.jpeg
-Preisliste.jpeg
-Irene Bux.jpg
-GitHub Anmeldung.jpg
+# Archive: unused reference files and original (uncompressed) photos
+Archiv/
