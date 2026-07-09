@@ -246,10 +246,6 @@ table.pt tr:hover td { background: rgba(38,36,32,.025); }
 /* ── MAP ── */
 #map { position: relative; isolation: isolate; }
 #map { height: 460px; border-radius: 2px; overflow: hidden; }
-.map-wrap { position: relative; }
-.map-consent { position: absolute; inset: 0; z-index: 5; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; text-align: center; padding: 28px; background: var(--cream); border: 1px solid var(--line); border-radius: 2px; }
-.map-consent p { max-width: 440px; font-size: 14px; line-height: 1.65; color: var(--ink); }
-.map-consent.hide { display: none; }
 .map-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 28px; }
 .mi { text-align: center; padding: 20px; background: var(--cream); }
 .mi h4 { font-size: 14px; font-weight: 500; margin-bottom: 4px; }

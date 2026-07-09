@@ -380,12 +380,8 @@
     });
   }
 
-  /* ── LEAFLET KARTE (erst nach Klick – Datenschutz, keine automatische OSM-Anfrage) ── */
-  window.loadMap = function () {
-    if (window._mapLoaded || typeof L === 'undefined') return;
-    window._mapLoaded = true;
-    var consent = document.getElementById('mapConsent');
-    if (consent) consent.classList.add('hide');
+  /* ── LEAFLET KARTE (lokal eingebunden, OSM-Kacheln von openstreetmap.org) ── */
+  if (typeof L !== 'undefined') {
     var vila = [45.331145, 13.734929];
     var icon = L.divIcon({
       html: '<div style="width:32px;height:32px;background:#a2573c;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.3)"></div>',
@@ -394,7 +390,6 @@
     var map = L.map('map', { scrollWheelZoom: false }).setView(vila, 13);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap', maxZoom: 19 }).addTo(map);
     L.marker(vila, { icon: icon }).addTo(map).bindPopup('<b>Villa VinoSelo</b><br>Vranje Selo, Istrien').openPopup();
-    setTimeout(function () { map.invalidateSize(); }, 60);
-  };
+  }
 
 })();
