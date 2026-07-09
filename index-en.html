@@ -79,7 +79,8 @@
 </div>
 <script>
   (function () {
-    if (sessionStorage.getItem('vinoseloIntroShown') === '1') {
+    var isMobile = window.matchMedia('(max-width: 900px)').matches;
+    if (isMobile || sessionStorage.getItem('vinoseloIntroShown') === '1') {
       var el = document.getElementById('introSplash');
       if (el) el.style.display = 'none';
     }
