@@ -339,6 +339,8 @@ footer { background: var(--charcoal); color: #cfcdc4; padding: 80px 0 30px; }
   .stats { grid-template-columns: repeat(2, 1fr); }
   .nl { display: none; }
   .nl.open { display: flex; flex-direction: column; position: absolute; top: 100%; right: 32px; background: #fff; padding: 28px; box-shadow: 0 12px 28px rgba(0,0,0,.12); gap: 18px; }
+  .nl.open a:not(.btn) { color: var(--charcoal); opacity: 1; }
+  .nl.open .nc { border-color: var(--charcoal); color: var(--charcoal); }
   .burger { display: block; }
   .section { padding: 80px 0; }
   .ft { flex-direction: column; }
@@ -358,14 +360,15 @@ footer { background: var(--charcoal); color: #cfcdc4; padding: 80px 0 30px; }
   .ts-info h3 { font-size: 21px; text-shadow: 0 1px 20px rgba(8,6,4,.95); }
   .ts-info p { font-size: 12px; text-shadow: 0 1px 12px rgba(8,6,4,.95); }
 
-  /* Vollbild-Galerien: ganzes Bild in voller Breite (kein Beschnitt), Labels darunter */
-  .fw-gallery { height: auto; overflow: visible; margin-top: 56px; cursor: grab; }
+  /* Vollbild-Galerien: ganzes Bild in voller Breite (kein Beschnitt), Text/Rubriken darunter */
+  .fw-gallery { height: auto; overflow: visible; margin-top: 56px; }
   .fw-img { height: auto; aspect-ratio: auto; object-fit: contain; }
-  .fw-ov { inset: 0; height: 100%; aspect-ratio: auto; background: linear-gradient(180deg, rgba(18,14,10,.72) 0%, transparent 42%, transparent 62%, rgba(18,14,10,.4) 100%); }
-  .fw-caption { left: 22px; top: 20px; max-width: 82%; }
-  .fw-caption h3 { font-size: 20px; }
-  .fw-caption p { font-size: 12.5px; }
-  .fw-labels { position: static; flex-direction: row; flex-wrap: wrap; gap: 8px 20px; margin-top: 16px; }
+  .fw-ov { display: none; }
+  .fw-caption { position: static; left: auto; top: auto; max-width: 100%; margin-top: 16px; color: var(--charcoal); }
+  .fw-caption h3 { font-size: 20px; color: var(--charcoal); text-shadow: none; }
+  .fw-caption p { font-size: 13px; color: var(--ink); text-shadow: none; }
+  .fw-caption .fw-dist { color: var(--terra); text-shadow: none; }
+  .fw-labels { position: static; flex-direction: row; flex-wrap: wrap; gap: 8px 20px; margin-top: 14px; }
   .fw-label { font-size: 16px; color: rgba(38,36,32,.5); text-shadow: none; }
   .fw-label:hover { color: rgba(38,36,32,.75); }
   .fw-label.on { color: var(--terra); }
