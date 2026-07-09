@@ -231,6 +231,24 @@
     new Image().src = src;
   });
 
+  /* Swipe navigation (left/right) for the full-width galleries on mobile */
+  function addFwSwipe(wrapId, gotoFn) {
+    var wrap = document.getElementById(wrapId);
+    if (!wrap) return;
+    var labels = wrap.querySelectorAll('.fw-label'), sx = 0;
+    wrap.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+    wrap.addEventListener('touchend', function (e) {
+      var dx = e.changedTouches[0].clientX - sx;
+      if (Math.abs(dx) < 45) return;
+      var cur = Array.prototype.indexOf.call(labels, wrap.querySelector('.fw-label.on'));
+      if (cur < 0) cur = 0;
+      var next = (cur + (dx < 0 ? 1 : -1) + labels.length) % labels.length;
+      gotoFn(next, labels[next]);
+    }, { passive: true });
+  }
+  addFwSwipe('fwGallery', window.fwGoto);
+  addFwSwipe('fwGallery2', window.fwGoto2);
+
   /* ── VIRTUELLER RUNDGANG ── */
   var curT   = 0,
       slides = document.querySelectorAll('.ts'),
