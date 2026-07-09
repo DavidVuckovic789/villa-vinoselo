@@ -56,12 +56,10 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="image" href="hausansicht-front.jpg">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&family=Alex+Brush&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
-<link rel="stylesheet" href="style.css?v=30">
+<link rel="stylesheet" href="fonts/fonts.css?v=1">
+<link rel="stylesheet" href="leaflet/leaflet.min.css">
+<link rel="stylesheet" href="style.css?v=31">
 </head>
 <body>
 
@@ -429,7 +427,13 @@
       <h2>Peacefully Located in the Heart of Istria</h2>
       <p>Between vineyards and olive groves near Vranje Selo, Vižinada – just a short drive from the sea.</p>
     </div>
-    <div class="reveal" id="map"></div>
+    <div class="reveal map-wrap">
+      <div id="map"></div>
+      <div class="map-consent" id="mapConsent">
+        <p>The interactive map is loaded from OpenStreetMap. In doing so, your IP address is transmitted to OpenStreetMap.</p>
+        <button type="button" class="btn" onclick="loadMap()"><span>Show map</span></button>
+      </div>
+    </div>
     <div class="map-row reveal">
       <div class="mi"><h4>Sea &amp; Beaches</h4><p>approx. 15 min drive</p></div>
       <div class="mi"><h4>Rovinj</h4><p>approx. 48 km · Venetian harbour town</p></div>
@@ -540,9 +544,9 @@
 </div>
 
 <!-- EXTERNAL LIBRARIES -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="leaflet/leaflet.min.js"></script>
 <!-- OWN SCRIPT -->
-<script src="script-en.js?v=19"></script>
+<script src="script-en.js?v=20"></script>
 
 </body>
 </html>
